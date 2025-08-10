@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four-ward Fitness Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f9;
+        }
+        .tab.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Four-ward Fitness</h1>
+            <p class="mt-2 text-lg text-gray-600">Your interactive weekly workout dashboard.</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-bold mb-4 text-gray-900">Today's Workout</h2>
+                <p class="text-gray-600 mb-6">Select a day to view the scheduled exercises. Today is <span class="font-semibold text-blue-600" id="current-day"></span>. Use the ✨ button for details and the 🔊 button to listen to the description.</p>
+                
+                <nav id="day-tabs" class="flex flex-wrap gap-2 mb-6">
+                </nav>
+
+                <div id="workout-display" class="space-y-4">
+                </div>
+            </div>
+
+            <aside class="space-y-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900">Daily Essentials</h2>
+                    <p class="text-gray-600 mb-6">These three exercises are the foundation of the plan. Complete them every day to build core strength and endurance.</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-4">
+                            <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 text-blue-600 font-bold text-xl">P</span>
+                            <div>
+                                <h3 class="font-semibold">Push-ups</h3>
+                                <p class="text-sm text-gray-500">3 Sets of AMRAP</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span class="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 text-green-600 font-bold text-xl">P</span>
+                            <div>
+                                <h3 class="font-semibold">Pull-ups</h3>
+                                <p class="text-sm text-gray-500">3 Sets of AMRAP</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span class="flex items-center justify-center w-10 h-10 rounded-full bg-yellow-100 text-yellow-600 font-bold text-xl">S</span>
+                            <div>
+                                <h3 class="font-semibold">Squats</h3>
+                                <p class="text-sm text-gray-500">3 Sets of 10-15 Reps</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900">Plan Overview</h2>
+                     <p class="text-gray-600 mb-6">This chart shows the number of unique exercises for each muscle group, giving you a quick look at the plan's balance.</p>
+                    <div class="chart-container">
+                        <canvas id="muscleGroupChart"></canvas>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="text-center p-6 mt-8 text-gray-500 text-sm">
+        <p>Dashboard for the "Four-ward Fitness" plan. Stay consistent!</p>
+    </footer>
+
+    <script>
+        const workoutData = {
+            Monday: {
+                focus: 'Legs',
+                exercises: [
+                    { name: 'Normal Squat', sets: '3', reps: '8-12', notes: '' },
+                    { name: 'Bulgarian Split Squat', sets: '3', reps: '8-12 per leg', notes: '' },
+                    { name: 'Lunges', sets: '3', reps: '10-15 per leg', notes: '' },
+                    { name: 'Wall Sit', sets: '3', reps: '30-60 seconds', notes: '' },
+                    { name: 'Calf Raises (sitting)', sets: '3', reps: '15-20', notes: '' },
+                    { name: 'Glute Extension', sets: '3', reps: '15-20', notes: '' },
+                    { name: 'Sumo Squat', sets: '3', reps: '8-12', notes: '' },
+                ]
+            },
+            Tuesday: {
+                focus: 'Active Rest',
+                exercises: [
+                    { name: 'Light Cardio', sets: '1', reps: '20-30 mins', notes: 'e.g., brisk walk, cycling' },
+                    { name: 'Stretching / Foam Rolling', sets: '1', reps: '15-20 mins', notes: '' },
+                ]
+            },
+            Wednesday: {
+                focus: 'Shoulders',
+                exercises: [
+                    { name: 'Shoulder Press', sets: '3', reps: '8-12', notes: '' },
+                    { name: 'Lateral Raise', sets: '3', reps: '12-15', notes: 'Focus on slow, controlled movement' },
+                    { name: 'Front Raise', sets: '3', reps: '12-15', notes: '' },
+                    { name: 'Pike Push-up', sets: '3', reps: '8-12', notes: '' },
+                    { name: 'Rear Delt Fly', sets: '3', reps: '12-15', notes: '' },
+                    { name: 'Shoulder Shrugs', sets: '3', reps: '15-20', notes: '' },
+                ]
+            },
+            Thursday: {
+                focus: 'Biceps',
+                exercises: [
+                    { name: 'Dumbbell Curl', sets: '3', reps: '8-12 per arm', notes: '' },
+                    { name: 'Hammer Curl', sets: '3', reps: '8-12 per arm', notes: '' },
+                    { name: 'EZ Bar Curl', sets: '3', reps: '8-12', notes: '' },
+                    { name: 'Concentration Curl', sets: '3', reps: '10-15 per arm', notes: '' },
+                    { name: 'Inverted Rows', sets: '3', reps: '10-15', notes: '' },
+                    { name: 'Plank', sets: '3', reps: '30-60 seconds', notes: '' },
+                ]
+            },
+            Friday: {
+                focus: 'Triceps',
+                exercises: [
+                    { name: 'Overhead DB Press', sets: '3', reps: '8-12', notes: '' },
+                    { name: 'Dips', sets: '3', reps: '8-12', notes: '' },
+                    { name: 'Kickback', sets: '3', reps: '12-15 per arm', notes: '' },
+                    { name: 'EZ Bar Skull Crushers', sets: '3', reps: '8-12', notes: '' },
+                    { name: 'Decline Push-up', sets: '3', reps: '8-12', notes: '' },
+                    { name: 'Diamond Push-up', sets: '3', reps: '8-12', notes: '' },
+                ]
+            },
+            Saturday: {
+                focus: 'Back',
+                exercises: [
+                    { name: 'Barbell Row', sets: '3', reps: '8-12', notes: '' },
+                    { name: 'Superman', sets: '3', reps: '15-20', notes: '' },
+                    { name: 'Superman (single hand/leg)', sets: '3', reps: '10-15 per side', notes: '' },
+                    { name: 'Dumbbell Row', sets: '3', reps: '8-12 per arm', notes: '' },
+                    { name: 'Inverted Rows (reverse grip)', sets: '3', reps: '10-15', notes: '' },
+                    { name: 'Good Mornings', sets: '3', reps: '12-15', notes: 'Use light weight or bodyweight' },
+                ]
+            },
+            Sunday: {
+                focus: 'Chest',
+                exercises: [
+                    { name: 'Push-up', sets: '3', reps: 'AMRAP', notes: '' },
+                    { name: 'Dips', sets: '3', reps: '8-12', notes: 'Also targets triceps' },
+                    { name: 'Incline DB Press', sets: '3', reps: '8-12', notes: '' },
+                    { name: 'Decline DB Press', sets: '3', reps: '8-12', notes: '' },
+                    { name: 'Dumbbell Fly', sets: '3', reps: '12-15', notes: '' },
+                    { name: 'Pullover', sets: '3', reps: '10-12', notes: '' },
+                ]
+            }
+        };
+
+        const dayTabsContainer = document.getElementById('day-tabs');
+        const workoutDisplayContainer = document.getElementById('workout-display');
+        const days = Object.keys(workoutData);
+        const today = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+        document.getElementById('current-day').textContent = today;
+
+
+        const apiCache = {};
+        let currentAudio = null;
+
+        const base64ToArrayBuffer = (base64) => {
+            const binaryString = atob(base64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            return bytes.buffer;
+        };
+
+        const pcmToWav = (pcm, sampleRate) => {
+            const dataLength = pcm.length * 2;
+            const buffer = new ArrayBuffer(44 + dataLength);
+            const view = new DataView(buffer);
+            let offset = 0;
+
+            const writeString = (str) => {
+                for (let i = 0; i < str.length; i++) {
+                    view.setUint8(offset++, str.charCodeAt(i));
+                }
+            };
+
+            writeString('RIFF');
+            view.setUint32(offset, 36 + dataLength, true); offset += 4;
+            writeString('WAVE');
+            writeString('fmt ');
+            view.setUint32(offset, 16, true); offset += 4;
+            view.setUint16(offset, 1, true); offset += 2; // Audio format 1 for PCM
+            view.setUint16(offset, 1, true); offset += 2; // Number of channels
+            view.setUint32(offset, sampleRate, true); offset += 4; // Sample rate
+            view.setUint32(offset, sampleRate * 2, true); offset += 4; // Byte rate
+            view.setUint16(offset, 2, true); offset += 2; // Block align
+            view.setUint16(offset, 16, true); offset += 2; // Bits per sample
+            writeString('data');
+            view.setUint32(offset, dataLength, true); offset += 4;
+
+            for (let i = 0; i < pcm.length; i++) {
+                view.setInt16(offset, pcm[i], true);
+                offset += 2;
+            }
+
+            return new Blob([view], { type: 'audio/wav' });
+        };
+
+        async function getExerciseDescription(exerciseName) {
+            if (apiCache[exerciseName]) {
+                return apiCache[exerciseName];
+            }
+            // IMPORTANT: Replace with your actual API Key
+            const apiKey = "AIzaSyB1EaGTShQ--gvrx6cR9a85Trf8JR6aQs8";
+            if (apiKey =="YOUR_API_KEY_HERE")
+             {
+                return "Please add your API key to the script to fetch descriptions.";
+            }
+
+            const prompt = `Provide a detailed description of the exercise "${exerciseName}", including the proper form, muscles targeted, and benefits. Do not include sets or reps. Keep it concise, professional, and formatted for a simple web app.`;
+            const payload = {
+                contents: [{ role: "user", parts: [{ text: prompt }] }]
+            };
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const result = await response.json();
+                const text = result.candidates[0].content.parts[0].text;
+                apiCache[exerciseName] = text;
+                return text;
+            } catch (error) {
+                console.error('Error fetching exercise description:', error);
+                return 'Failed to load description. Please try again.';
+            }
+        }
+
+        async function playTTS(text, button) {
+             console.log("Audio button was clicked!");
+            const originalText = button.textContent;
+            button.textContent = '...'; // Loading indicator
+            
+            // IMPORTANT: Replace with your actual API Key
+            const apiKey = "AIzaSyB1EaGTShQ--gvrx6cR9a85Trf8JR6aQs8";
+             if (apiKey === "YOUR_API_KEY_HERE") {
+                alert("Please add your API key to the script to use the audio feature.");
+                button.textContent = originalText;
+                return;
+            }
+
+            const prompt = `Say in an informative voice: ${text}`;
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                generationConfig: {
+                    responseMimeType: "audio/wav", // Request WAV directly
+                }
+            };
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}&alt=json`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const result = await response.json();
+                const audioData = result?.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+
+                if (audioData) {
+                    const audioBlob = new Blob([base64ToArrayBuffer(audioData)], { type: 'audio/wav' });
+                    const audioUrl = URL.createObjectURL(audioBlob);
+
+                    if (currentAudio) {
+                        currentAudio.pause();
+                        currentAudio.currentTime = 0;
+                    }
+                    currentAudio = new Audio(audioUrl);
+                    currentAudio.play();
+                    currentAudio.onended = () => button.textContent = originalText;
+
+                } else {
+                    throw new Error('Unexpected API response format or missing audio data');
+                }
+            } catch (error) {
+                console.error('Error playing TTS:', error);
+                alert('Could not play audio. Check console for details.');
+                button.textContent = originalText;
+            }
+        }
+
+        function displayWorkout(day) {
+            const data = workoutData[day];
+            workoutDisplayContainer.innerHTML = ''; 
+            
+            const focusEl = document.createElement('h3');
+            focusEl.className = 'text-xl font-semibold text-blue-600 mb-4';
+            focusEl.textContent = `Focus: ${data.focus}`;
+            workoutDisplayContainer.appendChild(focusEl);
+
+            data.exercises.forEach(ex => {
+                const itemWrapper = document.createElement('div');
+                itemWrapper.className = 'p-4 rounded-lg bg-gray-50 border-l-4 border-gray-200 transition-all duration-300';
+
+                const topRow = document.createElement('div');
+                topRow.className = 'flex flex-col sm:flex-row justify-between items-start sm:items-center';
+
+                const nameAndNote = document.createElement('div');
+                nameAndNote.className = 'flex-grow mb-2 sm:mb-0 pr-4';
+                const nameEl = document.createElement('p');
+                nameEl.className = 'font-semibold text-gray-800';
+                nameEl.textContent = ex.name;
+                nameAndNote.appendChild(nameEl);
+
+                if (ex.notes) {
+                    const noteEl = document.createElement('p');
+                    noteEl.className = 'text-xs text-gray-500 mt-1';
+                    noteEl.textContent = ex.notes;
+                    nameAndNote.appendChild(noteEl);
+                }
+                
+                const controls = document.createElement('div');
+                controls.className = 'flex-shrink-0 flex items-center gap-3 self-start sm:self-center';
+
+                const setsRepsEl = document.createElement('p');
+                setsRepsEl.className = 'text-sm text-gray-700 hidden md:block';
+                setsRepsEl.innerHTML = `<span class="font-semibold">${ex.sets}</span> sets, <span class="font-semibold">${ex.reps}</span> reps`;
+                
+                const geminiButton = document.createElement('button');
+                geminiButton.className = 'p-2 rounded-full bg-yellow-400 text-gray-800 hover:bg-yellow-500 transition-colors duration-200 shadow-md w-9 h-9 flex items-center justify-center';
+                geminiButton.textContent = '✨';
+                geminiButton.title = 'Show Details';
+                
+                const ttsButton = document.createElement('button');
+                ttsButton.className = 'p-2 rounded-full bg-blue-400 text-white hover:bg-blue-500 transition-colors duration-200 shadow-md w-9 h-9 flex items-center justify-center';
+                ttsButton.textContent = '🔊';
+                ttsButton.title = 'Read Aloud';
+                
+                const descriptionEl = document.createElement('div');
+                descriptionEl.className = 'mt-3 text-sm text-gray-700 hidden pl-2 border-l-2 border-blue-200';
+                
+                geminiButton.addEventListener('click', async () => {
+                    if (descriptionEl.classList.toggle('hidden')) {
+                        itemWrapper.classList.remove('bg-blue-50', 'border-blue-400');
+                        return;
+                    }
+                    itemWrapper.classList.add('bg-blue-50', 'border-blue-400');
+                    descriptionEl.textContent = 'Loading description...';
+                    const description = await getExerciseDescription(ex.name);
+                    descriptionEl.textContent = description;
+                });
+
+                ttsButton.addEventListener('click', async (e) => {
+                     console.log('SUCCESS! The button click has been detected.');
+                    const button = e.currentTarget;
+                    let textToSpeak = `${ex.name}. ${ex.sets} sets of ${ex.reps}.`;
+                    if (apiCache[ex.name]) {
+                        textToSpeak += ` The description is: ${apiCache[ex.name]}`;
+                    }
+                    playTTS(textToSpeak, button);
+                });
+
+                controls.appendChild(setsRepsEl);
+                controls.appendChild(geminiButton);
+                controls.appendChild(ttsButton);
+
+                topRow.appendChild(nameAndNote);
+                topRow.appendChild(controls);
+
+                itemWrapper.appendChild(topRow);
+                itemWrapper.appendChild(descriptionEl);
+                workoutDisplayContainer.appendChild(itemWrapper);
+            });
+
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelector(`.tab[data-day="${day}"]`).classList.add('active');
+        }
+
+        days.forEach(day => {
+            const tab = document.createElement('button');
+            tab.textContent = day;
+            tab.className = 'tab px-4 py-2 rounded-md font-semibold text-gray-700 bg-gray-100 hover:bg-blue-500 hover:text-white transition-colors duration-200';
+            tab.dataset.day = day;
+            tab.addEventListener('click', () => displayWorkout(day));
+            dayTabsContainer.appendChild(tab);
+        });
+
+        // Initialize with today's workout, or Monday if it's a weekend
+        const dayToDisplay = workoutData[today] ? today : 'Monday';
+        displayWorkout(dayToDisplay);
+        
+
+        // --- Dynamic Chart ---
+        function calculateChartData() {
+            const muscleCounts = {};
+            const order = ['Legs', 'Shoulders', 'Biceps', 'Triceps', 'Back', 'Chest'];
+
+            order.forEach(focus => muscleCounts[focus] = 0);
+
+            Object.values(workoutData).forEach(day => {
+                if (day.focus && day.focus !== 'Active Rest') {
+                    muscleCounts[day.focus] = day.exercises.length;
+                }
+            });
+            
+            return {
+                labels: order,
+                data: order.map(focus => muscleCounts[focus])
+            };
+        }
+
+        const { labels: chartLabels, data: chartData } = calculateChartData();
+        const muscleGroupCtx = document.getElementById('muscleGroupChart').getContext('2d');
+        new Chart(muscleGroupCtx, {
+            type: 'bar',
+            data: {
+                labels: chartLabels,
+                datasets: [{
+                    label: 'Number of Exercises',
+                    data: chartData,
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.7)',  // Blue
+                        'rgba(16, 185, 129, 0.7)',   // Green
+                        'rgba(234, 179, 8, 0.7)',   // Yellow
+                        'rgba(249, 115, 22, 0.7)',  // Orange
+                        'rgba(139, 92, 246, 0.7)',  // Purple
+                        'rgba(236, 72, 153, 0.7)'   // Pink
+                    ],
+                    borderColor: [
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(16, 185, 129, 1)',
+                        'rgba(234, 179, 8, 1)',
+                        'rgba(249, 115, 22, 1)',
+                        'rgba(139, 92, 246, 1)',
+                        'rgba(236, 72, 153, 1)'
+                    ],
+                    borderWidth: 1,
+                    borderRadius: 4,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) { return ''; },
+                             label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.x !== null) {
+                                    label += context.parsed.x;
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: { color: '#e5e7eb' },
+                        ticks: { color: '#4b5563', stepSize: 1 }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: {
+                            color: '#4b5563',
+                            font: { weight: '600' }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
