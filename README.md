@@ -1,4 +1,0 @@
-- 👋 Hi, I’m Sivaprasad
-- 👀 I’m interested in software development and computer architecture
-- 🌱 I’m currently learning coding languages
-- 💞️ I’m trying developing projects
