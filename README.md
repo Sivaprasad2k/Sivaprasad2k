@@ -4,7 +4,7 @@ Computer Science student focused on Backend Engineering, Java, Spring Boot, Data
 ## Current Projects
 - Real Estate Management System
 - Rural Infrastructure Classification
-- - Krishi Farmer Platform (on going)
+- Krishi Farmer Platform (on going)
 
 ### Tech Stack
 **Languages**
