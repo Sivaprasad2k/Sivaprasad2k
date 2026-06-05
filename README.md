@@ -6,16 +6,23 @@ Computer Science student focused on Backend Engineering, Java, Spring Boot, Data
 - Rural Infrastructure Classification
 - - Krishi Farmer Platform (on going)
 
-## Tech Stack
-Java
-Spring Boot
-PostgreSQL
-MongoDB
-C
-React
-Git
-Docker
-
+### Tech Stack
+**Languages**
+- Java
+- C
+**Backend**
+- Spring Boot
+- REST APIs
+**Databases**
+- PostgreSQL
+- MongoDB
+**Frontend**
+- React
+**Tools**
+- Git
+- GitHub
+- Docker
+- 
 ## Currently Learning
 - Data Structures & Algorithms
 - System Design
