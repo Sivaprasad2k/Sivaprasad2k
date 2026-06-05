@@ -22,7 +22,7 @@ Computer Science student focused on Backend Engineering, Java, Spring Boot, Data
 - Git
 - GitHub
 - Docker
-- 
+
 ## Currently Learning
 - Data Structures & Algorithms
 - System Design
