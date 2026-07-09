@@ -11,18 +11,25 @@ Computer Science student focused on Backend Engineering, Java, Spring Boot, Data
 **Languages**
 - Java
 - C
+
 **Backend**
 - Spring Boot
 - REST APIs
+  
 **Databases**
 - PostgreSQL
 - MongoDB
+  
 **Frontend**
 - React
+
 **Tools**
 - Git
 - GitHub
 - Docker
+- Render
+- Vercel
+
 
 ## Currently Learning
 - Data Structures & Algorithms
