@@ -38,6 +38,8 @@ Computer Science student focused on Backend Engineering, Java, Spring Boot, Data
 
 ## Featured Repositories
 - Real Estate Management System
+- CareerPath
+- DSAPreps
 - Rural Infrastructure Classification
 
 ## Contact
