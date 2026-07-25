@@ -1,4 +1,4 @@
-# Hi, I'm Siva Prasad ML
+# Hi, I'm Siva Prasad M L
 Computer Science student focused on Backend Engineering, Java, Spring Boot, Databases and AI-powered applications.
 
 ## Current Projects
