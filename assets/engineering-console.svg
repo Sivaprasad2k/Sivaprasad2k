@@ -85,7 +85,7 @@
     <!-- Node 3: Scale & AI Integration -->
     <rect x="416" y="52" width="160" height="64" rx="8" fill="#0d1117" stroke="#a371f7" stroke-width="1.5"/>
     <text x="432" y="74" fill="#a371f7" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" font-weight="700">STEP 03</text>
-    <text x="432" y="94" fill="#f0f6fc" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700">Scale &amp; AI</text>
+    <text x="432" y="94" fill="#f0f6fc" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700">AI &amp; Automation</text>
 
     <!-- Quote Box -->
     <rect x="24" y="138" width="552" height="112" rx="8" fill="#0d1117" stroke="#21262d" stroke-width="1"/>
@@ -101,7 +101,7 @@
   <!-- FOOTER BAR -->
   <line x1="40" y1="410" x2="1160" y2="410" stroke="#30363d" stroke-width="1"/>
   <text x="40" y="442" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">
-    CSE STUDENT · BACKEND ENGINEER · JAVA &amp; SPRING BOOT
+    CSE STUDENT · BACKEND ENGINEERING · JAVA &amp; SPRING BOOT
   </text>
   <text x="1160" y="442" text-anchor="end" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">
     GITHUB: @Sivaprasad2k
