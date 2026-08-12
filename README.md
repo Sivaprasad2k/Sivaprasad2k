@@ -12,14 +12,14 @@
 
 ### About
 
-Computer Science & Engineering student focused on backend engineering with Java and Spring Boot. I build across the stack when necessary, with particular interest in APIs, data, security, workflows, and system design.
+Computer Science & Engineering student focused on backend and software engineering. I build across the stack when necessary, with particular interest in APIs, data, security, workflows, and system design.
 
 ---
 
 ### Engineering Snapshot
 
 **Backend**  
-Java · Spring Boot · Spring Security · REST APIs · JPA / Hibernate
+Java · Spring Boot · Spring Security · REST APIs 
 
 **Data & Infrastructure**  
 PostgreSQL · MongoDB · Docker · Git · GitHub Actions · Render · Vercel
@@ -29,7 +29,7 @@ React · Vite · JavaScript · Tailwind CSS
 
 ---
 
-### Selected Systems
+### Projects
 
 - **Real Estate Hub** — Full-stack property management and marketplace platform with RBAC & REST APIs `SHIPPED`
 - **CareerPath** — Job application and interview tracking platform built on relational data models `SHIPPED`
@@ -49,20 +49,6 @@ React · Vite · JavaScript · Tailwind CSS
 
 ---
 
-### Engineering Principles
-
-```text
-Problem → Domain → Data → Workflow → Architecture → Implementation → Deployment → Observation → Iteration
-```
-
-* **Understand the problem** before selecting the technology.
-* **Model the domain** before turning everything into CRUD.
-* **Treat data modeling** as a core part of backend engineering.
-* **Design with deployment and failure in mind.**
-* **Use AI** where it provides genuine application value.
-
----
-
 ### Connect
 
-**LinkedIn:** [linkedin.com/in/sivaprasadml](https://www.linkedin.com/in/sivaprasadml) · **Email:** [sivaprasadml2k5@gmail.com](mailto:sivaprasadml2k5@gmail.com) · **GitHub:** [github.com/Sivaprasad2k](https://github.com/Sivaprasad2k)
+**LinkedIn:** [linkedin.com/in/sivaprasadml](https://www.linkedin.com/in/sivaprasadml) · **Email:** [sivaprasadml2k5@gmail.com](mailto:sivaprasadml2k5@gmail.com) · **Instagram:** [_.siiva._](https://www.instagram.com/_.siivaa._)
