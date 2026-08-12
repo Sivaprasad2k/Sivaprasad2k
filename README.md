@@ -27,9 +27,6 @@ PostgreSQL · MongoDB · Docker · Git · GitHub Actions · Render · Vercel
 **Frontend**  
 React · Vite · JavaScript · Tailwind CSS
 
-**AI Integration**  
-FastAPI · TensorFlow · Keras · AI APIs
-
 ---
 
 ### Selected Systems
