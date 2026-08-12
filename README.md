@@ -10,7 +10,7 @@
 
 ---
 
-### Identity
+### About
 
 Computer Science & Engineering student focused on backend engineering with Java and Spring Boot. I build across the stack when necessary, with particular interest in APIs, data, security, workflows, and system design.
 
