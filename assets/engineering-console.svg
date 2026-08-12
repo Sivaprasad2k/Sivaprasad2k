@@ -1,109 +1,88 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
-  <title id="title">Siva Prasad M L - Backend Engineering Hero</title>
-  <desc id="desc">Personal engineering hero card highlighting Siva Prasad M L, Backend Engineering, system architecture model, and currently building projects.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Siva Prasad M L - Personal Engineering Profile</title>
+  <desc id="desc">Personal engineering profile hero displaying identity, core engineering skills, and built systems.</desc>
 
   <defs>
     <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
       <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#161b22" stroke-width="1"/>
     </pattern>
-    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#161b22"/>
-      <stop offset="100%" stop-color="#0d1117"/>
-    </linearGradient>
   </defs>
 
   <!-- Outer Frame -->
-  <rect width="1200" height="480" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
-  <rect x="2" y="2" width="1196" height="476" rx="14" fill="url(#grid)" opacity="0.6"/>
+  <rect width="1200" height="430" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+  <rect x="2" y="2" width="1196" height="426" rx="14" fill="url(#grid)" opacity="0.6"/>
 
-  <!-- Header Status Bar -->
-  <rect x="40" y="32" width="1120" height="40" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
-  <circle cx="64" cy="52" r="5" fill="#3fb950"/>
-  <text x="78" y="56" fill="#3fb950" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700" letter-spacing="1">● BACKEND ENGINEERING &amp; SYSTEM ARCHITECTURE</text>
-  <text x="1140" y="56" text-anchor="end" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" letter-spacing="1">ENGINEERING HERO / 2026</text>
-
-  <!-- LEFT COLUMN: Identity & Core -->
-  <g transform="translate(40, 96)">
+  <!-- LEFT COLUMN: Identity & Skills -->
+  <g transform="translate(44, 40)">
     <!-- Identity Badge -->
-    <text x="0" y="20" fill="#58a6ff" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" font-weight="700" letter-spacing="1.5">01 // IDENTITY</text>
+    <text x="0" y="16" fill="#58a6ff" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" font-weight="700" letter-spacing="1.5">01 // IDENTITY</text>
     
     <!-- Name -->
-    <text x="0" y="60" fill="#f0f6fc" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="800" letter-spacing="-0.5">SIVA PRASAD M L</text>
+    <text x="0" y="54" fill="#f0f6fc" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="800" letter-spacing="-0.5">SIVA PRASAD M L</text>
     
     <!-- Role -->
-    <text x="0" y="92" fill="#58a6ff" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="600">Backend Engineering &amp; Systems</text>
+    <text x="0" y="84" fill="#58a6ff" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="19" font-weight="600">Backend Engineering &amp; Systems</text>
     
-    <!-- Core Stack -->
-    <text x="0" y="122" fill="#8b949e" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15">
-      <tspan fill="#c9d1d9" font-weight="600">Core Stack:</tspan> Java · Spring Boot · PostgreSQL · Security
-    </text>
+    <!-- Skills Section Header -->
+    <text x="0" y="124" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700" letter-spacing="1.5">SKILLS</text>
 
-    <!-- Divider Line -->
-    <line x1="0" y1="148" x2="490" y2="148" stroke="#30363d" stroke-width="1"/>
+    <!-- Backend Skills -->
+    <text x="0" y="148" fill="#58a6ff" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700">BACKEND</text>
+    <text x="0" y="168" fill="#c9d1d9" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="500">Java · Spring Boot · Spring Security</text>
+    <text x="0" y="186" fill="#8b949e" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">REST APIs · JPA / Hibernate</text>
 
-    <!-- Currently Building Box -->
-    <text x="0" y="176" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700" letter-spacing="1.5">CURRENTLY BUILDING</text>
+    <!-- Data Skills -->
+    <text x="0" y="214" fill="#58a6ff" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700">DATA</text>
+    <text x="0" y="234" fill="#c9d1d9" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="500">PostgreSQL · MongoDB</text>
 
-    <!-- Krishi Card -->
-    <rect x="0" y="190" width="236" height="68" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
-    <text x="16" y="215" fill="#3fb950" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700">▶ BUILDING</text>
-    <text x="16" y="235" fill="#f0f6fc" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="700">Krishi Platform</text>
-    <text x="16" y="249" fill="#8b949e" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Workflow-driven agri ops</text>
+    <!-- Frontend Skills -->
+    <text x="0" y="262" fill="#58a6ff" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700">FRONTEND</text>
+    <text x="0" y="282" fill="#c9d1d9" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="500">React · Vite</text>
 
-    <!-- Avis Card -->
-    <rect x="254" y="190" width="236" height="68" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
-    <text x="270" y="215" fill="#58a6ff" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700">▶ BUILDING</text>
-    <text x="270" y="235" fill="#f0f6fc" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="700">Avis AI System</text>
-    <text x="270" y="249" fill="#8b949e" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">AI inference &amp; backend service</text>
+    <!-- Engineering Skills -->
+    <text x="0" y="310" fill="#58a6ff" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700">ENGINEERING</text>
+    <text x="0" y="330" fill="#c9d1d9" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="500">Docker · Git · GitHub Actions</text>
   </g>
 
-  <!-- RIGHT COLUMN: Engineering Architecture Panel -->
-  <g transform="translate(560, 96)">
-    <rect x="0" y="0" width="600" height="274" rx="12" fill="url(#cardGrad)" stroke="#30363d" stroke-width="1"/>
+  <!-- RIGHT COLUMN: Systems Built -->
+  <g transform="translate(580, 40)">
+    <rect x="0" y="0" width="576" height="336" rx="12" fill="#161b22" stroke="#30363d" stroke-width="1"/>
     
-    <text x="24" y="32" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700" letter-spacing="1.5">02 // ENGINEERING MODEL</text>
+    <text x="24" y="28" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700" letter-spacing="1.5">02 // SYSTEMS BUILT</text>
+
+    <!-- Project 1: REAL ESTATE HUB -->
+    <text x="24" y="64" fill="#f0f6fc" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="17" font-weight="700">REAL ESTATE HUB</text>
+    <text x="552" y="64" text-anchor="end" fill="#3fb950" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700">SHIPPED</text>
+    <text x="24" y="84" fill="#8b949e" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">Property management platform</text>
     
-    <!-- Flow Nodes -->
-    <!-- Node 1: Domain & Data -->
-    <rect x="24" y="52" width="160" height="64" rx="8" fill="#0d1117" stroke="#58a6ff" stroke-width="1.5"/>
-    <text x="40" y="74" fill="#58a6ff" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" font-weight="700">STEP 01</text>
-    <text x="40" y="94" fill="#f0f6fc" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700">Domain &amp; Data</text>
+    <line x1="24" y1="102" x2="552" y2="102" stroke="#21262d" stroke-width="1"/>
 
-    <!-- Arrow 1 -->
-    <path d="M 190 84 L 212 84" stroke="#58a6ff" stroke-width="2"/>
-    <polygon points="216,84 208,79 208,89" fill="#58a6ff"/>
+    <!-- Project 2: CAREERPATH -->
+    <text x="24" y="134" fill="#f0f6fc" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="17" font-weight="700">CAREERPATH</text>
+    <text x="552" y="134" text-anchor="end" fill="#3fb950" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700">SHIPPED</text>
+    <text x="24" y="154" fill="#8b949e" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">Job application &amp; interview tracking</text>
+    
+    <line x1="24" y1="172" x2="552" y2="172" stroke="#21262d" stroke-width="1"/>
 
-    <!-- Node 2: Services & APIs -->
-    <rect x="220" y="52" width="160" height="64" rx="8" fill="#0d1117" stroke="#3fb950" stroke-width="1.5"/>
-    <text x="236" y="74" fill="#3fb950" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" font-weight="700">STEP 02</text>
-    <text x="236" y="94" fill="#f0f6fc" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700">Services &amp; APIs</text>
+    <!-- Project 3: KRISHI -->
+    <text x="24" y="204" fill="#f0f6fc" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="17" font-weight="700">KRISHI</text>
+    <text x="552" y="204" text-anchor="end" fill="#d29922" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700">BUILDING</text>
+    <text x="24" y="224" fill="#8b949e" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">Workflow-driven agricultural platform</text>
+    
+    <line x1="24" y1="242" x2="552" y2="242" stroke="#21262d" stroke-width="1"/>
 
-    <!-- Arrow 2 -->
-    <path d="M 386 84 L 408 84" stroke="#3fb950" stroke-width="2"/>
-    <polygon points="412,84 404,79 404,89" fill="#3fb950"/>
-
-    <!-- Node 3: Scale & AI Integration -->
-    <rect x="416" y="52" width="160" height="64" rx="8" fill="#0d1117" stroke="#a371f7" stroke-width="1.5"/>
-    <text x="432" y="74" fill="#a371f7" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" font-weight="700">STEP 03</text>
-    <text x="432" y="94" fill="#f0f6fc" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700">AI &amp; Automation</text>
-
-    <!-- Quote Box -->
-    <rect x="24" y="138" width="552" height="112" rx="8" fill="#0d1117" stroke="#21262d" stroke-width="1"/>
-    <text x="44" y="166" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" letter-spacing="1">ENGINEERING PHILOSOPHY</text>
-    <text x="44" y="194" fill="#c9d1d9" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-style="italic" font-weight="500">
-      "Understand the problem. Model the system. Build it. Deploy it. Refine it."
-    </text>
-    <text x="44" y="222" fill="#8b949e" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12">
-      Focusing on software behavior, data integrity, auditability, and system resilience.
-    </text>
+    <!-- Project 4: AVIS -->
+    <text x="24" y="274" fill="#f0f6fc" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="17" font-weight="700">AVIS</text>
+    <text x="552" y="274" text-anchor="end" fill="#58a6ff" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700">BUILDING</text>
+    <text x="24" y="294" fill="#8b949e" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">AI-powered personal assistant</text>
   </g>
 
   <!-- FOOTER BAR -->
-  <line x1="40" y1="410" x2="1160" y2="410" stroke="#30363d" stroke-width="1"/>
-  <text x="40" y="442" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">
+  <line x1="44" y1="392" x2="1156" y2="392" stroke="#30363d" stroke-width="1"/>
+  <text x="44" y="414" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">
     CSE STUDENT · BACKEND ENGINEERING · JAVA &amp; SPRING BOOT
   </text>
-  <text x="1160" y="442" text-anchor="end" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">
+  <text x="1156" y="414" text-anchor="end" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">
     GITHUB: @Sivaprasad2k
   </text>
 </svg>
